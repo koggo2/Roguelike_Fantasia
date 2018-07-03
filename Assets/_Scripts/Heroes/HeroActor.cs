@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,8 +19,20 @@ public class HeroActor : MonoBehaviour {
 		_animator.SetBool("Moving", true);
 	}
 
+	[ContextMenu("Attack")]
 	public void Attack() {
+		_animator.SetTrigger("Attack1Trigger");
+		var animationTime = _animator.GetCurrentAnimatorClipInfo(0).Length;
+
+//		StartCoroutine(
+//			DelayedAction(() => { _animator.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity); }, animationTime)
+//		);
+	}
+
+	private IEnumerator DelayedAction(Action action, float delayTime) {
+		yield return new WaitForSeconds(delayTime);
 		
+		action.Invoke();
 	}
 
 	public void Stay() {
