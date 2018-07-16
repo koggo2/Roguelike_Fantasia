@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class StageActor : MonoBehaviour {
 
+	public CameraActor CameraActor;
 	public Transform HeroHolder;
 	public Transform EnemyHolder;
 
 	private GameObject _heroInstance;
+	private Camera _mainCamera;
 	
 	// Use this for initialization
 	void Start () {
-		
+		_mainCamera = Camera.main;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +24,7 @@ public class StageActor : MonoBehaviour {
 	public void OnPlayerClickedPlane(Vector3 clickedPoint) {
 		Debug.Log(clickedPoint.ToString());
 
-		_heroInstance.GetComponent<HeroActor>().Move(clickedPoint);
+		CameraActor.Move(clickedPoint);
 	}
 
 	public void SpawnHeroes() {
