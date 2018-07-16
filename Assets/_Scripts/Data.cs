@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class Data {
 
-     public static Player Player { get; private set; }
+    public static Player Player { get; private set; }
 
-    public static void InitData() {
+#if TEST
+    public static void InitTestData() {
          Player = new Player() {
              Heroes = new List<Player.HeroContainer>() {
                  new Player.HeroContainer() {
                      Order = 1,
                      Hero = new Hero() {
-                         Name = "Test Hero",
+                         Id = "Hero_Rogue_1",
+                         Relics = new List<string>(),
+                     }
+                 },
+                 new Player.HeroContainer() {
+                     Order = 1,
+                     Hero = new Hero() {
+                         Id = "Hero_Mage_1",
+                         Relics = new List<string>(),
                      }
                  }
              }
          };
      }
+#endif
+    
 }

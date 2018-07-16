@@ -7,7 +7,7 @@ public class ModelTestSceneManager : BaseSceneManager {
 	private StageActor _stageActor;
 	
 	void Awake() {
-		Data.InitData();
+		Data.InitTestData();
 		_stageActor = FindObjectOfType<StageActor>();
 	}
 	

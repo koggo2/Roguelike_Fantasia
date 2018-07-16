@@ -111,8 +111,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4744707316436704}
   - component: {fileID: 114009890411810480}
+  - component: {fileID: 195286286428292020}
   m_Layer: 0
-  m_Name: Hero_Rogue
+  m_Name: Hero_Rogue_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2011,3 +2012,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 84.66398, z: -6.071089}
     m_Extent: {x: 102.45604, y: 94.77332, z: 25.698645}
   m_DirtyAABB: 0
+--- !u!195 &195286286428292020
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099377463820856}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

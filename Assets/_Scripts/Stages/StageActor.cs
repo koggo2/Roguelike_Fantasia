@@ -27,7 +27,8 @@ public class StageActor : MonoBehaviour {
 
 	public void SpawnHeroes() {
 		foreach (var heroData in Data.Player.Heroes) {
-			var hero = Resources.Load<GameObject>("Prefabs/Heroes/Hero 1");
+			var prefabPath = $"Prefabs/Heroes/{heroData.Hero.Id}";
+			var hero = Resources.Load<GameObject>(prefabPath);
 			if (hero == null)
 				return;
 			
