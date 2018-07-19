@@ -8,6 +8,8 @@ public class HeroActor : MonoBehaviour {
 
 	private Animator _animator;
 	private NavMeshAgent _agent;
+	
+	public int CharacterIndex { get; set; }
 
 	private void Awake() {
 		_animator = GetComponentInChildren<Animator>(true);
@@ -15,7 +17,7 @@ public class HeroActor : MonoBehaviour {
 	}
 
 	public void Move(Vector3 worldPosition) {
-		_agent.SetDestination(worldPosition);
+		_agent.SetDestination(worldPosition + CharacterPositioning.GetPosition(CharacterIndex));
 		_animator.SetBool("Moving", true);
 	}
 
