@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,14 +12,39 @@ public class HeroActor : MonoBehaviour {
 	
 	public int CharacterIndex { get; set; }
 
+	private IEnumerator _checkDistanceAction;
+	private Vector3 _destination;
+	
+	private GameObject sphere;
+
 	private void Awake() {
 		_animator = GetComponentInChildren<Animator>(true);
 		_agent = GetComponent<NavMeshAgent>();
+
+		var spherePrefab = Resources.Load<GameObject>("Prefabs/ETC/Sphere");
+		sphere = Instantiate(spherePrefab);
+		sphere.GetComponent<MeshRenderer>().material.color = Color.red;
+		sphere.SetActive(false);
 	}
 
 	public void Move(Vector3 worldPosition) {
-		_agent.SetDestination(worldPosition + CharacterPositioning.GetPosition(CharacterIndex));
+		_destination = worldPosition + CharacterPositioning.GetPosition(CharacterIndex);
+		_agent.SetDestination(_destination);
 		_animator.SetBool("Moving", true);
+
+		sphere.transform.position = _destination;
+		sphere.SetActive(true);
+		
+		StartCoroutine(CheckingMovingEnd());
+	}
+
+	private IEnumerator CheckingMovingEnd() {
+		while (_agent.remainingDistance > float.Epsilon) {
+			yield return new WaitForEndOfFrame();
+		}
+
+		_animator.SetBool("Moving", false);
+		sphere.SetActive(false);
 	}
 
 	[ContextMenu("Attack")]
@@ -38,16 +64,6 @@ public class HeroActor : MonoBehaviour {
 	}
 
 	public void Stay() {
-		
-	}
-	
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
 		
 	}
 

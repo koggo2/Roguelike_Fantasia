@@ -23,8 +23,6 @@ public class StageActor : MonoBehaviour {
 	}
 
 	public void OnPlayerClickedPlane(Vector3 clickedPoint) {
-		Debug.Log(clickedPoint.ToString());
-
 		CameraActor.Move(clickedPoint);
 		_heroes.ForEach(hero => hero.Move(clickedPoint));
 	}
