@@ -27,24 +27,32 @@ public class HeroActor : MonoBehaviour {
 		sphere.SetActive(false);
 	}
 
+	private void Update() {
+		if (!_agent.isStopped) {
+			if (_agent.remainingDistance <= _agent.stoppingDistance) {
+				_animator.SetBool("Moving", false);
+				sphere.SetActive(false);
+				_agent.Stop();
+			}
+		}
+	}
+
 	public void Move(Vector3 worldPosition) {
 		_destination = worldPosition + CharacterPositioning.GetPosition(CharacterIndex);
+//		var path = new NavMeshPath();
+		
+		_agent.Resume();
 		_agent.SetDestination(_destination);
 		_animator.SetBool("Moving", true);
-
 		sphere.transform.position = _destination;
 		sphere.SetActive(true);
 		
-		StartCoroutine(CheckingMovingEnd());
-	}
-
-	private IEnumerator CheckingMovingEnd() {
-		while (_agent.remainingDistance > float.Epsilon) {
-			yield return new WaitForEndOfFrame();
-		}
-
-		_animator.SetBool("Moving", false);
-		sphere.SetActive(false);
+//		if (_agent.CalculatePath(_destination, path)) {
+//			_agent.SetDestination(_destination);
+//			_animator.SetBool("Moving", true);
+//			sphere.transform.position = _destination;
+//			sphere.SetActive(true);
+//		}
 	}
 
 	[ContextMenu("Attack")]
