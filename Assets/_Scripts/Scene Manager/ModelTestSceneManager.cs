@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class ModelTestSceneManager : BaseSceneManager {
 
+	private CameraActor _cameraActor;
 	private StageActor _stageActor;
 	
 	void Awake() {
-		Data.InitTestData();
+		_cameraActor = FindObjectOfType<CameraActor>();
 		_stageActor = FindObjectOfType<StageActor>();
+		Game.Init();
 	}
 	
 	// Use this for initialization
 	void Start () {
-		if (_stageActor != null) {
-			_stageActor.SpawnHeroes();
-			_stageActor.SpawnEnemy();
-		}
+		Game.SpawnHeroes(_stageActor);
+		Game.SpawnEnemies(_stageActor);
+
+		_cameraActor.AttachToHero(Game.GetLeaderActor());
 	}
 }

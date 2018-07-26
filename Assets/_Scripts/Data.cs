@@ -26,7 +26,9 @@ public class Data {
                  }
              }
          };
-     }
+
+        Player.SetLeader(0);
+    }
 #endif
     
 }
