@@ -61,6 +61,7 @@
     <Compile Include="Assets\_Scripts\Heroes\CameraActor.cs" />
     <Compile Include="Assets\_Scripts\Heroes\Hero.cs" />
     <Compile Include="Assets\_Scripts\Heroes\HeroActor.cs" />
+    <Compile Include="Assets\_Scripts\Heroes\HeroActor.Debug.cs" />
     <Compile Include="Assets\_Scripts\Player\Player.cs" />
     <Compile Include="Assets\_Scripts\Scene Manager\BaseSceneManager.cs" />
     <Compile Include="Assets\_Scripts\Scene Manager\CycleManager.cs" />
@@ -145,11 +146,11 @@
     <None Include="Assets\RPG Character Animation Pack\Elements\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
     <None Include="Assets\RPG Character Animation Pack\Elements\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
     <None Include="Assets\RPG Character Animation Pack\Elements\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
-    <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>/Users/lineplus/Documents/Works/git.Roguelike_Fantasia/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>/Users/lineplus/Documents/Works/git.Roguelike_Fantasia/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.StandardEvents">
+      <HintPath>/Users/lineplus/Documents/Works/git.Roguelike_Fantasia/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/lineplus/Documents/Works/git.Roguelike_Fantasia/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

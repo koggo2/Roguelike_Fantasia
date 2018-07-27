@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class HeroActor : MonoBehaviour {
+public partial class HeroActor : MonoBehaviour {
 
 	private Animator _animator;
 	private NavMeshAgent _agent;
@@ -14,6 +14,7 @@ public class HeroActor : MonoBehaviour {
 
 	private IEnumerator _checkDistanceAction;
 	private Vector3 _destination;
+	private Vector3 _lookAt;
 	
 	private GameObject sphere;
 
@@ -30,6 +31,9 @@ public class HeroActor : MonoBehaviour {
 	private void Update() {
 		if (!_agent.isStopped) {
 			if (_agent.remainingDistance <= _agent.stoppingDistance) {
+				var rotationVector = Vector3.RotateTowards(transform.forward, _lookAt, 1f, 0f);
+				transform.rotation = Quaternion.LookRotation(rotationVector);
+				
 				_animator.SetBool("Moving", false);
 				sphere.SetActive(false);
 				_agent.Stop();
@@ -37,8 +41,9 @@ public class HeroActor : MonoBehaviour {
 		}
 	}
 
-	public void Move(Vector3 worldPosition) {
-		_destination = worldPosition + CharacterPositioning.GetPosition(CharacterIndex);
+	public void Move(Vector3 worldPosition, Vector3 lookAt) {
+		_destination = worldPosition;// + CharacterPositioning.GetPosition(CharacterIndex);
+		_lookAt = lookAt;
 //		var path = new NavMeshPath();
 		
 		_agent.Resume();
