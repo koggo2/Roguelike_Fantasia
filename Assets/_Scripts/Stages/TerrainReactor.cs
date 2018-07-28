@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TerrainActor : MonoBehaviour {
+public class TerrainReactor : BaseReactor {
 
-	private StageActor _stageActor;
-	
-	private void Awake() {
-		_stageActor = GetComponentInParent<StageActor>();
-	}
-	
-	public void OnMouseDown() {
+	public delegate void HitTerrain(Vector3 point);
+	public HitTerrain OnHitTerrain;
+
+	protected override void OnClick() {
+		base.OnClick();
+		
 		if (EventSystem.current.IsPointerOverGameObject())
 			return;
 		
@@ -23,17 +22,7 @@ public class TerrainActor : MonoBehaviour {
 		var stageLayer = LayerMask.NameToLayer("Stage");
 
 		if (Physics.Raycast(ray, out hit, 1000f, 1 << stageLayer)) {
-			_stageActor?.OnPlayerClickedPlane(hit.point);
+			OnHitTerrain?.Invoke(hit.point);
 		}
-	}
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

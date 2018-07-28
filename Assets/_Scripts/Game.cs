@@ -16,7 +16,7 @@ public static class Game {
         return _heroes.Find(actor => actor.name == Data.Player.Leader.Id);
     }
     
-    public static void SpawnHeroes(StageActor stageActor) {
+    public static void SpawnHeroes(Transform holderTransform) {
         for (var index = 0; index < Data.Player.Heroes.Count; index++) {
             var heroData = Data.Player.Heroes[index];
             var prefabPath = $"Prefabs/Heroes/{heroData.Hero.Id}";
@@ -26,7 +26,7 @@ public static class Game {
 
             var heroInstance = GameObject.Instantiate(hero);
             heroInstance.tag = TagString.Tag_Hero;
-            heroInstance.transform.SetParent(stageActor.HeroHolder);
+            heroInstance.transform.SetParent(holderTransform);
             heroInstance.transform.localPosition = CharacterPositioning.GetPosition(index);
             heroInstance.transform.localScale = Vector3.one;
             heroInstance.transform.localRotation = Quaternion.identity;
@@ -39,7 +39,7 @@ public static class Game {
         }
     }
     
-    public static void SpawnEnemies(StageActor stageActor) {
+    public static void SpawnEnemies(Transform HolderTransform) {
         // Using TagString.Tag_Enemy
         var enemy = Resources.Load<GameObject>("Prefabs/Heroes/Hero 1");
         if (enemy == null)
@@ -47,7 +47,7 @@ public static class Game {
 			
         var heroInstance = GameObject.Instantiate(enemy);
         heroInstance.tag = TagString.Tag_Enemy;
-        heroInstance.transform.SetParent(stageActor.EnemyHolder);
+        heroInstance.transform.SetParent(HolderTransform);
         heroInstance.transform.localPosition = Vector3.zero;
         heroInstance.transform.localScale = Vector3.one;
         heroInstance.transform.localRotation = Quaternion.identity;

@@ -54,6 +54,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\Actor.cs" />
+    <Compile Include="Assets\_Scripts\BaseReactor.cs" />
     <Compile Include="Assets\_Scripts\Data.cs" />
     <Compile Include="Assets\_Scripts\ETC\CharacterPositioning.cs" />
     <Compile Include="Assets\_Scripts\ETC\ExDebug.cs" />
@@ -67,8 +69,8 @@
     <Compile Include="Assets\_Scripts\Scene Manager\BaseSceneManager.cs" />
     <Compile Include="Assets\_Scripts\Scene Manager\CycleManager.cs" />
     <Compile Include="Assets\_Scripts\Scene Manager\ModelTestSceneManager.cs" />
-    <Compile Include="Assets\_Scripts\Stages\StageActor.cs" />
-    <Compile Include="Assets\_Scripts\Stages\TerrainActor.cs" />
+    <Compile Include="Assets\_Scripts\Stages\ArtifactActor.cs" />
+    <Compile Include="Assets\_Scripts\Stages\TerrainReactor.cs" />
     <Compile Include="Assets\_Scripts\TagString.cs" />
     <Compile Include="Assets\_Scripts\UI\BaseUIManager.cs" />
     <Compile Include="Assets\_Scripts\UI\TestSceneUIManager.cs" />
