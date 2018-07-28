@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class CameraActor : MonoBehaviour {
+public class GameCamera : MonoBehaviour {
 
     private Quaternion _defaultRotation;
 

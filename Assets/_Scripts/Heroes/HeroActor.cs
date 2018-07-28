@@ -5,9 +5,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
-public partial class HeroActor : MonoBehaviour {
+public partial class HeroActor : Actor {
 
-	private Animator _animator;
 	private NavMeshAgent _agent;
 	
 	public int CharacterIndex { get; set; }
@@ -18,8 +17,9 @@ public partial class HeroActor : MonoBehaviour {
 	
 	private GameObject sphere;
 
-	private void Awake() {
-		_animator = GetComponentInChildren<Animator>(true);
+	protected override void Awake() {
+		base.Awake();
+		
 		_agent = GetComponent<NavMeshAgent>();
 
 		var spherePrefab = Resources.Load<GameObject>("Prefabs/ETC/Sphere");

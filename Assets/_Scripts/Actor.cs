@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class Actor : BaseReactor {
+    protected Animator _animator;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    protected virtual void Awake() {
+        _animator = GetComponentInChildren<Animator>(true);
+    }
+
+#if UNITY_EDITOR
+    protected virtual void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward);
+    }
+#endif
 }

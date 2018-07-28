@@ -2,13 +2,13 @@
 
 public class ModelTestSceneManager : BaseSceneManager {
 
-	private CameraActor _cameraActor;
+	private GameCamera _gameCamera;
 	private TerrainReactor _terrainReactor;
 	public Transform HeroHolder;
 	public Transform EnemyHolder;
 	
 	void Awake() {
-		_cameraActor = FindObjectOfType<CameraActor>();
+		_gameCamera = FindObjectOfType<GameCamera>();
 		_terrainReactor = FindObjectOfType<TerrainReactor>();
 		Game.Init();
 	}
@@ -18,7 +18,7 @@ public class ModelTestSceneManager : BaseSceneManager {
 		Game.SpawnHeroes(HeroHolder);
 		Game.SpawnEnemies(EnemyHolder);
 
-		_cameraActor.AttachToHero(Game.GetLeaderActor());
+		_gameCamera.AttachToHero(Game.GetLeaderActor());
 		_terrainReactor.OnHitTerrain += OnPlayerClickedPlane;
 	}
 

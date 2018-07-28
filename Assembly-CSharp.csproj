@@ -61,7 +61,7 @@
     <Compile Include="Assets\_Scripts\ETC\ExDebug.cs" />
     <Compile Include="Assets\_Scripts\ETC\GameSingleton.cs" />
     <Compile Include="Assets\_Scripts\Game.cs" />
-    <Compile Include="Assets\_Scripts\Heroes\CameraActor.cs" />
+    <Compile Include="Assets\_Scripts\Heroes\GameCamera.cs" />
     <Compile Include="Assets\_Scripts\Heroes\Hero.cs" />
     <Compile Include="Assets\_Scripts\Heroes\HeroActor.cs" />
     <Compile Include="Assets\_Scripts\Heroes\HeroActor.Debug.cs" />
