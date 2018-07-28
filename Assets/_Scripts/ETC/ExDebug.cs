@@ -7,10 +7,9 @@ using System.Text;
 
 public static class Debug
 	{
-		// 임시 확장 버전, Editor 가 아닌 빌드에서는 빈 함수 호출.
 		public static void Log (params object[] objectList)
 		{
-#if UNITY_EDITOR || SERVICE_ALPHA
+#if UNITY_EDITOR
 			if (objectList == null)
 				return;
 
@@ -31,27 +30,6 @@ public static class Debug
 			}
 			
 			UnityEngine.Debug.Log (log);
-#endif
-		}
-
-		public static void FileLog(string inText)
-		{
-#if UNITY_EDITOR
-			StreamWriter fileLog;
-			FileMode mode;
-			var path = UnityEngine.Application.dataPath + "/LocalData/log.log";
-			if (File.Exists(path))
-			{				
-				mode = FileMode.Append;
-			}
-			else
-			{
-				mode = FileMode.Create;
-				
-			}
-			fileLog = new StreamWriter(File.Open(path, mode), Encoding.UTF8);
-			fileLog.WriteLine(inText);
-			fileLog.Close();		
 #endif
 		}
 		
@@ -114,7 +92,6 @@ public static class Debug
 #endif
 		}
 
-		//#if UNITY_EDITOR
 		private static string IEnumerableToString (IEnumerable enumerable)
 		{
 			if (enumerable is string)
@@ -128,5 +105,4 @@ public static class Debug
 
 			return message += "}</color>";
 		}
-		//#endif
 	}
