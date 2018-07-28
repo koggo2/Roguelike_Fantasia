@@ -17,12 +17,11 @@ public static class CharacterPositioning {
 		new Vector3(_gap, 0f, -_gap * 2),
 	};
 	
-	public static Vector3 GetPosition(int index, float angle) {
+	public static Vector3 GetPosition(int index) {
 
 		if (index > 8)
 			return _positions[0];
 
-		Debug.Log(angle);
-		return Quaternion.Euler(0f, angle, 0f) * _positions[index];
+		return _positions[index];
 	}
 }

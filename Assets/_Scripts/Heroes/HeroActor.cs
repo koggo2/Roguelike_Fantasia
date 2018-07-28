@@ -14,7 +14,7 @@ public partial class HeroActor : MonoBehaviour {
 
 	private IEnumerator _checkDistanceAction;
 	private Vector3 _destination;
-	private Vector3 _lookAt;
+	private Vector3 _endRotation;
 	
 	private GameObject sphere;
 
@@ -31,7 +31,7 @@ public partial class HeroActor : MonoBehaviour {
 	private void Update() {
 		if (!_agent.isStopped) {
 			if (_agent.remainingDistance <= _agent.stoppingDistance) {
-				var rotationVector = Vector3.RotateTowards(transform.forward, _lookAt, 1f, 0f);
+				var rotationVector = Vector3.RotateTowards(transform.forward, _endRotation, 1f, 0f);
 				transform.rotation = Quaternion.LookRotation(rotationVector);
 				
 				_animator.SetBool("Moving", false);
@@ -43,21 +43,13 @@ public partial class HeroActor : MonoBehaviour {
 
 	public void Move(Vector3 worldPosition, Vector3 lookAt) {
 		_destination = worldPosition;// + CharacterPositioning.GetPosition(CharacterIndex);
-		_lookAt = lookAt;
-//		var path = new NavMeshPath();
+		_endRotation = lookAt;
 		
 		_agent.Resume();
 		_agent.SetDestination(_destination);
 		_animator.SetBool("Moving", true);
 		sphere.transform.position = _destination;
 		sphere.SetActive(true);
-		
-//		if (_agent.CalculatePath(_destination, path)) {
-//			_agent.SetDestination(_destination);
-//			_animator.SetBool("Moving", true);
-//			sphere.transform.position = _destination;
-//			sphere.SetActive(true);
-//		}
 	}
 
 	[ContextMenu("Attack")]

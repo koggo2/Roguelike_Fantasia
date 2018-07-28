@@ -27,7 +27,7 @@ public static class Game {
             var heroInstance = GameObject.Instantiate(hero);
             heroInstance.tag = TagString.Tag_Hero;
             heroInstance.transform.SetParent(stageActor.HeroHolder);
-            heroInstance.transform.localPosition = CharacterPositioning.GetPosition(index, 0f);
+            heroInstance.transform.localPosition = CharacterPositioning.GetPosition(index);
             heroInstance.transform.localScale = Vector3.one;
             heroInstance.transform.localRotation = Quaternion.identity;
             heroInstance.name = heroData.Hero.Id;
