@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
 public class TerrainReactor : BaseReactor {
@@ -20,9 +21,11 @@ public class TerrainReactor : BaseReactor {
 		var ray = mainCam.ScreenPointToRay(mPosition);
 		var hit = new RaycastHit();
 		var stageLayer = LayerMask.NameToLayer("Stage");
-
+		
 		if (Physics.Raycast(ray, out hit, 1000f, 1 << stageLayer)) {
-			OnHitTerrain?.Invoke(hit.point);
+			var navMeshHit = new NavMeshHit();
+			if(NavMesh.SamplePosition(hit.point, out navMeshHit, 100.0f, NavMesh.AllAreas))
+				OnHitTerrain?.Invoke(navMeshHit.position);
 		}
 	}
 }

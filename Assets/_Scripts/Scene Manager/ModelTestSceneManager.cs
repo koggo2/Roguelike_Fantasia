@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Security.Cryptography.X509Certificates;
+using UnityEngine;
+using UnityEngine.AI;
 
 public class ModelTestSceneManager : BaseSceneManager {
 
@@ -6,10 +8,13 @@ public class ModelTestSceneManager : BaseSceneManager {
 	private TerrainReactor _terrainReactor;
 	public Transform HeroHolder;
 	public Transform EnemyHolder;
+
+	public NavMeshData NavData;
 	
 	void Awake() {
 		_gameCamera = FindObjectOfType<GameCamera>();
 		_terrainReactor = FindObjectOfType<TerrainReactor>();
+
 		Game.Init();
 	}
 	
