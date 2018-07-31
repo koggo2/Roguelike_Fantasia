@@ -103,7 +103,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 3e4e2b2e5431c4ebfa09f54a8ac1e540, type: 2}
 --- !u!114 &114134071611843376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,11 +116,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_StartPoint: {x: 2, y: 0, z: 50}
-  m_EndPoint: {x: -2, y: 0, z: 50}
+  m_StartPoint: {x: 1, y: 0, z: 50}
+  m_EndPoint: {x: -1, y: 0, z: 50}
   m_Width: 100
   m_CostModifier: -1
-  m_Bidirectional: 0
+  m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 0
 --- !u!114 &114384716760999890
@@ -135,11 +135,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_StartPoint: {x: 50, y: 0, z: 98}
-  m_EndPoint: {x: 50, y: 0, z: 102}
+  m_StartPoint: {x: 50, y: 0, z: 99}
+  m_EndPoint: {x: 50, y: 0, z: 101}
   m_Width: 100
   m_CostModifier: -1
-  m_Bidirectional: 0
+  m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 0
 --- !u!114 &114424005269671378
@@ -154,11 +154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_StartPoint: {x: 50, y: 0, z: 2}
-  m_EndPoint: {x: 50, y: 0, z: -2}
+  m_StartPoint: {x: 50, y: 0, z: 1}
+  m_EndPoint: {x: 50, y: 0, z: -1}
   m_Width: 100
   m_CostModifier: -1
-  m_Bidirectional: 0
+  m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 0
 --- !u!114 &114487175931382052
@@ -184,11 +184,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_StartPoint: {x: 98, y: 0, z: 50}
-  m_EndPoint: {x: 102, y: 0, z: 50}
+  m_StartPoint: {x: 99, y: 0, z: 50}
+  m_EndPoint: {x: 101, y: 0, z: 50}
   m_Width: 100
   m_CostModifier: -1
-  m_Bidirectional: 0
+  m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 0
 --- !u!154 &154216107469922674
