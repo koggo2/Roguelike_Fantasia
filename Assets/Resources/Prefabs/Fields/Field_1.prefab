@@ -56,6 +56,8 @@ GameObject:
   - component: {fileID: 4547066057174594}
   - component: {fileID: 33528258587247722}
   - component: {fileID: 23273169696979950}
+  - component: {fileID: 208016453847437420}
+  - component: {fileID: 65928015928455140}
   m_Layer: 0
   m_Name: SM_Prop_Chest_Wood_01
   m_TagString: Untagged
@@ -72,8 +74,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4391719153644978}
   - component: {fileID: 114851475991552770}
-  - component: {fileID: 208872959277952392}
-  - component: {fileID: 65422179879234746}
   m_Layer: 9
   m_Name: Chest
   m_TagString: Untagged
@@ -123,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1577769634090958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.4, y: 0, z: 49.6}
+  m_LocalPosition: {x: 17, y: 0, z: 17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4547066057174594}
@@ -254,12 +254,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1435563872566482}
   m_Mesh: {fileID: 4300000, guid: 51144326d8d668848b7cb552ddb441a0, type: 3}
---- !u!65 &65422179879234746
+--- !u!65 &65928015928455140
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1577769634090958}
+  m_GameObject: {fileID: 1435563872566482}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 3e10befaa36d440ebbc1fc638c2ec5ff, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 8d30271dda040ad47b4622ca6c90c435, type: 2}
 --- !u!114 &114134071611843376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -402,18 +402,18 @@ TerrainCollider:
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 548e8ed5d360d46abbd22b7706e17e45, type: 2}
   m_EnableTreeColliders: 1
---- !u!208 &208872959277952392
+--- !u!208 &208016453847437420
 NavMeshObstacle:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1577769634090958}
+  m_GameObject: {fileID: 1435563872566482}
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 1, z: 0.5}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
